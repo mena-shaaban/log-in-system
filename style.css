@@ -1,0 +1,63 @@
+body {
+    background-color: #24353f;
+    color: white;
+}
+
+.title-colored {
+    color: #17a2b8;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.title-colored:hover {
+    color: #1ecbe1;
+}
+
+.card-login {
+    background-color: #24353f;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.input-custom {
+    background-color: #24353f;
+    color: white;
+    border: 1px solid #f0f6f7;
+}
+
+.input-custom::placeholder {
+    color: #aaa;
+}
+
+.input-custom:focus {
+    background-color: #24353f;
+    color: white;
+    box-shadow: none;
+    outline: none;
+}
+
+.input-custom:hover {
+    border-color: #17a2b8;
+}
+
+.btn-login {
+    color: #17a2b8;
+    border: 1px solid #17a2b8;
+    background-color: transparent;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.link-alt {
+    color: #ffffff;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.link-alt:hover {
+    color: white;
+    text-decoration: underline;
+}

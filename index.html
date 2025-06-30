@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="login-wrapper">
+      <div class="container my-5 text-center">
+        <div class="card-login w-75 p-5 m-auto">
+          <h1 class="title-colored">Smart Login System</h1>
+          <form onsubmit="login(event)">
+            <div class="my-3">
+              <input type="email" class="form-control input-custom" id="emailField" placeholder="Enter your email" required>
+            </div>
+            <div class="my-3">
+              <input type="password" class="form-control input-custom" id="passField" placeholder="Enter your password" required>
+            </div>
+            <p id="loginMessage" class="message"></p>
+            <div class="my-3">
+              <button type="submit" class="form-control btn btn-login mt-3">Login</button>
+            </div>
+          </form>
+          <p>
+            <span>Don’t have an account? </span>
+            <a href="signup.html" class="link-alt">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function login(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("emailField").value.trim();
+      const password = document.getElementById("passField").value;
+      const message = document.getElementById("loginMessage");
+
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+      const user = users.find(user => user.email === email && user.password === password);
+
+      if (user) {
+        message.textContent = "Login successful! Redirecting...";
+        message.style.color = "green";
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+        setTimeout(() => {
+          window.location.href = "home.html";
+        }, 1500);
+      } else {
+        message.textContent = "Invalid email or password!";
+        message.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
+
